@@ -53,6 +53,7 @@ public class Task {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", text='" + text + '\'' +
+                ", isComplete='" + isComplete + '\'' +
                 '}';
     }
 }

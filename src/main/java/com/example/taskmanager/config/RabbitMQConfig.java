@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 public class RabbitMQConfig {
     Logger logger = Logger.getLogger(RabbitMQConfig.class.getName());
 
-    //настраиваем соединение с RabbitMQ
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory =
@@ -78,7 +77,6 @@ public class RabbitMQConfig {
         container.setConnectionFactory(connectionFactory());
         container.setQueueNames("queueCreateTask");
         container.setMessageListener(new MessageListener() {
-            //тут ловим сообщения из queue1
             public void onMessage(Message message) {
                 logger.info("received from queueCreateTask : " + new String(message.getBody()));
             }
@@ -92,7 +90,6 @@ public class RabbitMQConfig {
         container.setConnectionFactory(connectionFactory());
         container.setQueueNames("queueUpdateTask");
         container.setMessageListener(new MessageListener() {
-            //тут ловим сообщения из queue1
             public void onMessage(Message message) {
                 logger.info("received from queueUpdateTask : " + new String(message.getBody()));
             }
@@ -106,7 +103,6 @@ public class RabbitMQConfig {
         container.setConnectionFactory(connectionFactory());
         container.setQueueNames("queueDeleteTask");
         container.setMessageListener(new MessageListener() {
-            //тут ловим сообщения из queue1
             public void onMessage(Message message) {
                 logger.info("received from queueDeleteTask : " + new String(message.getBody()));
             }
@@ -120,7 +116,6 @@ public class RabbitMQConfig {
         container.setConnectionFactory(connectionFactory());
         container.setQueueNames("queueUpdateIsComplete");
         container.setMessageListener(new MessageListener() {
-            //тут ловим сообщения из queue1
             public void onMessage(Message message) {
                 logger.info("received from queueUpdateIsComplete : " + new String(message.getBody()));
             }

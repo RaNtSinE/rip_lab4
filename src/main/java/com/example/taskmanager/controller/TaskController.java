@@ -42,8 +42,9 @@ public class TaskController {
 
     @PostMapping
     public Task create(@RequestBody Task task) {
-        template.convertAndSend("queueCreateTask", task.toString());
-        return taskRepository.save(task);
+        Task newTask = taskRepository.save(task);
+        template.convertAndSend("queueCreateTask", newTask.toString());
+        return newTask;
     }
 
     @PostMapping("{id}")
